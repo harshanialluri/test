@@ -43,7 +43,9 @@ public class HomePage extends BaseTest{
 		
 		public void clickOnNewContactLink() {
 			Actions action=new Actions(driver);
+	
 			action.moveToElement(contactsLink).build().perform();
+
 			newContactLink.click();
 			
 			

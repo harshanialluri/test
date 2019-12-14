@@ -42,19 +42,18 @@ public class ContactsPage extends BaseTest{
 		return nameLabel.isDisplayed();
 	}
 	
-	public void createNewContact(String Title,String fname,String lname,String cname) throws InterruptedException {
+	public void createNewContact(String Title,String fname,String lname,String cname) {
 		
+	
 		Select select=new Select(title);
-		Thread.sleep(2000);
 		select.selectByVisibleText(Title);
-		Thread.sleep(2000);
 		firstName.sendKeys(fname);
 		lastName.sendKeys(lname);
 		companyName.sendKeys(cname);
-		Thread.sleep(2000);
+	
 		saveBtn.click();
 		
-		Thread.sleep(2000);
+		//Thread.sleep(2000);
 		
 	}
 	

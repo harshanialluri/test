@@ -38,31 +38,33 @@ public class ContactsPageTest extends BaseTest{
 	}
 	
 
-	@Test(priority=1)
-	public void verifyContactsTextTest() {
-		boolean flag=contactsPage.verifyContactsText();
-		Assert.assertTrue(flag);
-	}
-	
-	@Test(priority=2)
-	public void verifyNameLableTest() {
-		boolean flag=contactsPage.verifyNameLable();
-		Assert.assertTrue(flag);
-	}
-	
 	@DataProvider
 	public Object[][] getCRMTestData(){
 		Object data[][] = TestUtil.getTestData(sheetName);
 		return data;
 	}
 	
-	@Test(priority=3)
-	public void createNewContactTest(String title,String firstname,String lastname,String company) throws InterruptedException
+	@Test(priority=1,dataProvider="getCRMTestData")
+	public void createNewContactTest(String title,String firstname,String lastname,String company)
 	{
 		homePage.clickOnNewContactLink();
 		//contactsPage.createNewContact("Mr.", "Siva", "Nagu", "Chalapathi");
 		contactsPage.createNewContact(title, firstname, lastname, company);
 	}
+	
+	@Test(priority=2)
+	public void verifyContactsTextTest() {
+		boolean flag=contactsPage.verifyContactsText();
+		Assert.assertTrue(flag);
+	}
+	
+	@Test(priority=3)
+	public void verifyNameLableTest() {
+		boolean flag=contactsPage.verifyNameLable();
+		Assert.assertTrue(flag);
+	}
+	
+	
 	
 	@AfterMethod
 	public void tearDown() {
