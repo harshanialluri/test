@@ -33,7 +33,6 @@ public class ContactsPageTest extends BaseTest{
 		testUtil=new TestUtil();
 		loginPage.login(prop.getProperty("username"), prop.getProperty("password"));
 		testUtil.switchToFrame();
-		homePage.clickOnContactsLink();
 		
 	}
 	
@@ -47,6 +46,8 @@ public class ContactsPageTest extends BaseTest{
 	@Test(priority=1,dataProvider="getCRMTestData")
 	public void createNewContactTest(String title,String firstname,String lastname,String company)
 	{
+	
+		
 		homePage.clickOnNewContactLink();
 		//contactsPage.createNewContact("Mr.", "Siva", "Nagu", "Chalapathi");
 		contactsPage.createNewContact(title, firstname, lastname, company);
@@ -54,12 +55,14 @@ public class ContactsPageTest extends BaseTest{
 	
 	@Test(priority=2)
 	public void verifyContactsTextTest() {
+		homePage.clickOnContactsLink();
 		boolean flag=contactsPage.verifyContactsText();
 		Assert.assertTrue(flag);
 	}
 	
 	@Test(priority=3)
 	public void verifyNameLableTest() {
+		homePage.clickOnContactsLink();
 		boolean flag=contactsPage.verifyNameLable();
 		Assert.assertTrue(flag);
 	}

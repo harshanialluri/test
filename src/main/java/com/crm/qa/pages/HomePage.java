@@ -25,6 +25,8 @@ public class HomePage extends BaseTest{
 			WebElement newContactLink;
 	
 	
+	@FindBy(xpath="//a[contains(text(),'New Deal')]")WebElement newDealLink;
+	
 	public HomePage() {
 		PageFactory.initElements(driver, this);
 		}
@@ -47,8 +49,15 @@ public class HomePage extends BaseTest{
 			action.moveToElement(contactsLink).build().perform();
 
 			newContactLink.click();
+					
 			
+		}
+		
+		public void clickonNewDealLink() {
 			
+			Actions action=new Actions(driver);
+			action.moveToElement(dealsLink).build().perform();
+			newDealLink.click();
 		}
 	}
 
