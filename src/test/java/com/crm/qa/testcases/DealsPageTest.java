@@ -42,7 +42,7 @@ public class DealsPageTest extends BaseTest{
 		return data;
 	}
 	
-	@Test(priority=1,enabled=false,dataProvider="getCRMTestData")
+	@Test(priority=1,dataProvider="getCRMTestData")
 	public void createNewDealTest(String title,String company,String primaryConatct,String amount) {
 		testUtil.switchToFrame();
 		homePage.clickonNewDealLink();
@@ -50,7 +50,7 @@ public class DealsPageTest extends BaseTest{
 		
 	}
 	
-	@Test
+	@Test(priority=2)
 	public void verifydealsTextTest()
 	{
 		testUtil.switchToFrame();
