@@ -1,5 +1,6 @@
 package com.crm.qa.testcases;
 
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
@@ -41,12 +42,21 @@ public class DealsPageTest extends BaseTest{
 		return data;
 	}
 	
-	@Test(dataProvider="getCRMTestData")
+	@Test(priority=1,enabled=false,dataProvider="getCRMTestData")
 	public void createNewDealTest(String title,String company,String primaryConatct,String amount) {
 		testUtil.switchToFrame();
 		homePage.clickonNewDealLink();
 		dealsPage.createNewDeal(title, company, primaryConatct, amount);
 		
+	}
+	
+	@Test
+	public void verifydealsTextTest()
+	{
+		testUtil.switchToFrame();
+		homePage.clickOnDealsPage();
+		boolean flag = dealsPage.verifyDealText();
+		Assert.assertTrue(flag);
 	}
 	
 	@AfterMethod

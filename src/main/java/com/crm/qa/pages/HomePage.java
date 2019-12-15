@@ -52,12 +52,17 @@ public class HomePage extends BaseTest{
 					
 			
 		}
-		
+				
 		public void clickonNewDealLink() {
 			
 			Actions action=new Actions(driver);
 			action.moveToElement(dealsLink).build().perform();
 			newDealLink.click();
+		}
+		
+		public DealsPage clickOnDealsPage() {
+			dealsLink.click();
+			return new DealsPage();
 		}
 	}
 

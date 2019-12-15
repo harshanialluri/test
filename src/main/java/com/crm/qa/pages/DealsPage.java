@@ -2,6 +2,7 @@ package com.crm.qa.pages;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.PageFactory;
 
 import com.crm.qa.base.BaseTest;
@@ -18,6 +19,8 @@ public class DealsPage extends BaseTest {
 	
 	@FindBy(xpath="//input[@type='submit' and  @value='Save']")WebElement saveBtn;
 	
+	@FindBy(xpath="//td[contains(text(),'Deals')]")WebElement dealsText;
+	
 	public DealsPage() {
 		PageFactory.initElements(driver, this);
 				
@@ -32,6 +35,8 @@ public class DealsPage extends BaseTest {
 		
 	}
 	
-	
+	public boolean verifyDealText() {
+		return dealsText.isDisplayed();
+	}
 	
 }
